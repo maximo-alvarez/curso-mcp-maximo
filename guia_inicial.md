@@ -629,7 +629,18 @@ Copia (o toma una captura de) la salida de `verify_environment.py` y pégala en 
 ```markdown
 ## Environment check — Class 1
 
-<pega aquí la salida>
+                                 Environment check — Class 1                                 
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Component                ┃ Status ┃ Detail                                                ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Python 3.12              │   OK   │ 3.12.4                                                │
+│ uv                       │   OK   │ uv 0.12.6 (7938ca5d5 2026-08-25 aarch64-apple-darwin) │
+│ Git                      │   OK   │ git version 2.50.1 (Apple Git-155)                    │
+│ Docker                   │   OK   │ Docker version 29.4.0, build 9d7ad9f                  │
+│ .gitignore protects .env │   OK   │ protects .env                                         │
+└──────────────────────────┴────────┴───────────────────────────────────────────────────────┘
+
+Environment ready. See you in Class 2.
 ```
 
 Haz un último commit y push:
