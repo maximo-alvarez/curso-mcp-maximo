@@ -1,0 +1,10 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "edit_file|write_file",
+        "hooks": [{ "type": "command", "command": "bash .agents/hooks/gate-tests.sh" }]
+      }
+    ]
+  }
+}

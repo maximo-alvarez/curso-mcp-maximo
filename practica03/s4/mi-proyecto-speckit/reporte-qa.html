@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Calidad QA</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 40px; background: #f8fafc; color: #1e293b; }
+        .card { background: white; border-radius: 8px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); padding: 24px; margin-bottom: 24px; }
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 16px; margin-bottom: 20px; }
+        .badge { padding: 6px 14px; border-radius: 9999px; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; }
+        .badge.success { background: #dcfce7; color: #15803d; }
+        .badge.warning { background: #fef9c3; color: #854d0e; }
+        .badge.danger { background: #fee2e2; color: #b91c1c; }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: #f1f5f9; font-weight: 600; }
+        pre { background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; }
+        .metric { font-size: 2rem; font-weight: bold; color: #0f172a; }
+        .metric-label { font-size: 0.875rem; color: #64748b; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div>
+                <h1 style="margin: 0; font-size: 1.5rem;">Reporte Consolidado de Calidad QA</h1>
+                <p style="margin: 4px 0 0; color: #64748b;">Proyecto: Conversor de Temperatura (Spec Kit)</p>
+            </div>
+            <div>
+                <span class="badge warning">APROBADO CON OBSERVACIONES</span>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div style="background: #f8fafc; padding: 16px; border-radius: 6px; text-align: center;">
+                <div class="metric">18</div>
+                <div class="metric-label">Tests Pasados</div>
+            </div>
+            <div style="background: #f8fafc; padding: 16px; border-radius: 6px; text-align: center;">
+                <div class="metric">87%</div>
+                <div class="metric-label">Cobertura de Código</div>
+            </div>
+            <div style="background: #f8fafc; padding: 16px; border-radius: 6px; text-align: center;">
+                <div class="metric">1</div>
+                <div class="metric-label">Hallazgos de Seguridad</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Revisión de Seguridad Básica</h2>
+        <table>
+            <thead>
+                <tr><th>Categoría</th><th>Estado / Hallazgo</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>🔑 Secretos expuestos</td><td>Sin hallazgos</td></tr><tr><td>🧪 Validación de entradas</td><td>Falta validación de límite físico del cero absoluto en origen para Celsius (< -273.15 °C) y Fahrenheit (< -459.67 °F)</td></tr><tr><td>🚪 Manejo de excepciones</td><td>Sin hallazgos (todas las excepciones son específicas)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Salida de Cobertura y Pruebas</h2>
+        <p><strong>Líneas no cubiertas:</strong> 28, 91, 101, 106, 125-130, 148
+--------------------------------------------</p>
+        <pre><code>============================= test session starts ==============================
+platform darwin -- Python 3.12.4, pytest-9.1.1, pluggy-1.6.0 -- /Volumes/data/_cursos/_cedia_2026_programacion_mcp/proyecto01/practica03/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Volumes/data/_cursos/_cedia_2026_programacion_mcp/proyecto01/practica03
+configfile: pyproject.toml
+plugins: cov-7.1.0
+collecting ... collected 18 items
+
+tests/test_conversor.py::TestConversorTemperatura::test_caso_borde_mismo_origen_y_destino PASSED [  5%]
+tests/test_conversor.py::TestConversorTemperatura::test_caso_borde_valor_no_numerico 
+tests/test_conversor.py::TestConversorTemperatura::test_caso_borde_valor_no_numerico PASSED [ 11%]
+tests/test_conversor.py::TestConversorTemperatura::test_celsius_a_fahrenheit PASSED [ 16%]
+tests/test_conversor.py::TestConversorTemperatura::test_celsius_a_kelvin PASSED [ 22%]
+tests/test_conversor.py::TestConversorTemperatura::test_cli_argumentos_error PASSED [ 27%]
+tests/test_conversor.py::TestConversorTemperatura::test_cli_argumentos_exito PASSED [ 33%]
+tests/test_conversor.py::TestConversorTemperatura::test_cli_argumentos_insuficientes PASSED [ 38%]
+tests/test_conversor.py::TestConversorTemperatura::test_fahrenheit_a_celsius PASSED [ 44%]
+tests/test_conversor.py::TestConversorTemperatura::test_fahrenheit_a_kelvin_y_viceversa PASSED [ 50%]
+tests/test_conversor.py::TestConversorTemperatura::test_kelvin_a_celsius PASSED [ 55%]
+tests/test_conversor.py::TestConversorTemperatura::test_normalizacion_escalas_y_formato_coma PASSED [ 61%]
+tests/test_conversor.py::TestConversorTemperatura::test_rechazo_kelvin_menor_a_cero PASSED [ 66%]
+tests/test_conversor.py::TestConversorTemperatura::test_redondeo_dos_decimales_us1 PASSED [ 72%]
+tests/test_conversor.py::TestConversorTemperatura::test_temperaturas_negativas_c_y_f PASSED [ 77%]
+tests/test_integracion.py::test_flujo_completo_conversion_punta_a_punta PASSED [ 83%]
+tests/test_unitario.py::test_convertir_temperatura_25c_a_77f PASSED      [ 88%]
+tests/test_unitario.py::test_convertir_temperatura_texto_error_claro PASSED [ 94%]
+tests/test_unitario.py::test_convertir_temperatura_kelvin_negativo_rechazado PASSED [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.4-final-0 _______________
+
+Name           Stmts   Miss  Cover   Missing
+--------------------------------------------
+conversor.py      85     11    87%   28, 91, 101, 106, 125-130, 148
+--------------------------------------------
+TOTAL             85     11    87%
+==================== 18 passed, 8 subtests passed in 0.08s =====================
+</code></pre>
+    </div>
+</body>
+</html>
