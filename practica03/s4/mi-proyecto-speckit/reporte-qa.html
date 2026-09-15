@@ -28,7 +28,7 @@
                 <p style="margin: 4px 0 0; color: #64748b;">Proyecto: Conversor de Temperatura (Spec Kit)</p>
             </div>
             <div>
-                <span class="badge warning">APROBADO CON OBSERVACIONES</span>
+                <span class="badge success">APROBADO</span>
             </div>
         </div>
 
@@ -38,11 +38,11 @@
                 <div class="metric-label">Tests Pasados</div>
             </div>
             <div style="background: #f8fafc; padding: 16px; border-radius: 6px; text-align: center;">
-                <div class="metric">87%</div>
+                <div class="metric">85%</div>
                 <div class="metric-label">Cobertura de Código</div>
             </div>
             <div style="background: #f8fafc; padding: 16px; border-radius: 6px; text-align: center;">
-                <div class="metric">1</div>
+                <div class="metric">0</div>
                 <div class="metric-label">Hallazgos de Seguridad</div>
             </div>
         </div>
@@ -55,21 +55,22 @@
                 <tr><th>Categoría</th><th>Estado / Hallazgo</th></tr>
             </thead>
             <tbody>
-                <tr><td>🔑 Secretos expuestos</td><td>Sin hallazgos</td></tr><tr><td>🧪 Validación de entradas</td><td>Falta validación de límite físico del cero absoluto en origen para Celsius (< -273.15 °C) y Fahrenheit (< -459.67 °F)</td></tr><tr><td>🚪 Manejo de excepciones</td><td>Sin hallazgos (todas las excepciones son específicas)</td></tr>
+                <tr><td>🔑 Secretos expuestos</td><td>Sin hallazgos</td></tr><tr><td>🧪 Validación de entradas</td><td>Sin hallazgos</td></tr><tr><td>🚪 Manejo de excepciones</td><td>Sin hallazgos (todas las excepciones son específicas)</td></tr>
             </tbody>
         </table>
     </div>
 
     <div class="card">
         <h2>Salida de Cobertura y Pruebas</h2>
-        <p><strong>Líneas no cubiertas:</strong> 28, 91, 101, 106, 125-130, 148
+        <p><strong>Líneas no cubiertas:</strong> 28, 78, 82, 99, 109, 114, 133-138, 156
 --------------------------------------------</p>
         <pre><code>============================= test session starts ==============================
-platform darwin -- Python 3.12.4, pytest-9.1.1, pluggy-1.6.0 -- /Volumes/data/_cursos/_cedia_2026_programacion_mcp/proyecto01/practica03/.venv/bin/python
+platform darwin -- Python 3.12.4, pytest-9.1.1, pluggy-1.6.0 -- /Volumes/data/_cursos/_cedia_2026_programacion_mcp/proyecto01/curso-mcp-maximo/practica03/.venv/bin/python3
 cachedir: .pytest_cache
-rootdir: /Volumes/data/_cursos/_cedia_2026_programacion_mcp/proyecto01/practica03
+metadata: {'Python': '3.12.4', 'Platform': 'macOS-26.6.2-arm64-arm-64bit', 'Packages': {'pytest': '9.1.1', 'pluggy': '1.6.0'}, 'Plugins': {'cov': '7.1.0', 'json-report': '1.5.0', 'metadata': '3.1.1'}, 'JAVA_HOME': '/Users/maximo/Applications/Android Studio.app/Contents/jbr/Contents/Home'}
+rootdir: /Volumes/data/_cursos/_cedia_2026_programacion_mcp/proyecto01/curso-mcp-maximo/practica03
 configfile: pyproject.toml
-plugins: cov-7.1.0
+plugins: cov-7.1.0, json-report-1.5.0, metadata-3.1.1
 collecting ... collected 18 items
 
 tests/test_conversor.py::TestConversorTemperatura::test_caso_borde_mismo_origen_y_destino PASSED [  5%]
@@ -97,9 +98,9 @@ _______________ coverage: platform darwin, python 3.12.4-final-0 _______________
 
 Name           Stmts   Miss  Cover   Missing
 --------------------------------------------
-conversor.py      85     11    87%   28, 91, 101, 106, 125-130, 148
+conversor.py      89     13    85%   28, 78, 82, 99, 109, 114, 133-138, 156
 --------------------------------------------
-TOTAL             85     11    87%
+TOTAL             89     13    85%
 ==================== 18 passed, 8 subtests passed in 0.08s =====================
 </code></pre>
     </div>

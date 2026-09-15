@@ -69,10 +69,18 @@ def convertir_temperatura(
     escala_origen = _normalizar_escala(origen)
     escala_destino = _normalizar_escala(destino)
 
-    # Validación de límite físico: Rechazar Kelvin menor a 0
+    # Validación de límite físico: Rechazar temperaturas por debajo del cero absoluto
     if escala_origen == "K" and temp < 0:
         raise ConversionError(
             f"Error: Temperatura en Kelvin inválida ({temp} K). Kelvin no puede ser menor a 0 (cero absoluto)."
+        )
+    if escala_origen == "C" and temp < -273.15:
+        raise ConversionError(
+            f"Error: Temperatura en Celsius inválida ({temp} °C). No puede ser menor a -273.15 °C (cero absoluto)."
+        )
+    if escala_origen == "F" and temp < -459.67:
+        raise ConversionError(
+            f"Error: Temperatura en Fahrenheit inválida ({temp} °F). No puede ser menor a -459.67 °F (cero absoluto)."
         )
 
     # Caso borde: Mismo valor de origen y destino
