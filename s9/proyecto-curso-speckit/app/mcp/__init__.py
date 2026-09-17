@@ -1,0 +1,1 @@
+"""FastMCP sub-application package."""

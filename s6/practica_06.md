@@ -1085,7 +1085,7 @@ def db_session():
 Sin `TEST_DATABASE_URL`, sigue corriendo en SQLite en memoria por defecto. Para probar contra Postgres, crea una base **separada** de la que usa la API manualmente:
 
 ```bash
-docker exec -it <nombre_del_contenedor_db> psql -U gastos -d gastos -c "CREATE DATABASE gastos_test;"
+docker exec -it proyecto-curso-db-1 psql -U gastos -d gastos -c "CREATE DATABASE gastos_test;"
 TEST_DATABASE_URL="postgresql+psycopg://gastos:gastos@localhost:5433/gastos_test" uv run pytest -v tests/test_integracion_gastos.py
 ```
 
